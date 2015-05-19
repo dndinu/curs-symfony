@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>{{ category.id }}</td>
+        </tr>
+        <tr>
+            <td>Label</td>
+            <td>{{ category.label }}</td>
+        </tr>
+        <tr>
+            <td>Parent</td>
+            {% if(category.parent is null) %}
+                <td>No parent</td>
+            {% else %}
+                <td>
+                    {% set parentUrl = path(
+                    'catalog_category_show',
+                    {'categoryId': category.parent.id})
+                    %}                    <a href="{{ parentUrl }}">
+                        {{ category.parent.label }}
+                    </a>
+                </td>
+            {% endif %}
+        </tr>    </table>
+    <a href="{{ path('catalog_category_list') }}">Back to list</a>
+{% endblock %}
