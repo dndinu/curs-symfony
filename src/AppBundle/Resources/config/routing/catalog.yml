@@ -15,3 +15,6 @@ catalog_category_save:
     path: /category/edit/{categoryId}
     defaults: { _controller: AppBundle:Catalog:saveCategory, categoryId:0}
     methods:  [POST]
+catalog_category_tree:
+  path: /category/tree
+  defaults: { _controller: AppBundle:Catalog:treeCategories}

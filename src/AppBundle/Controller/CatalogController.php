@@ -1,6 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
 class CatalogController extends Controller
 {
     public function indexAction()
@@ -58,5 +60,29 @@ class CatalogController extends Controller
             throw new \Exception("CategoryId $categoryId does not exist");
         }
         return $categories[$categoryId];
+    }
+
+    public function treeCategoriesAction(Request $request)
+    {
+        $request = $request->getContentType();
+        $arguments = array('categories' => $this->buildTree($this->getCategories()));
+        var_dump($request);
+        if ($request === 'application/json') {
+            $arguments = ;
+        }
+
+        return $this->render('catalog/category/tree.html.twig', $arguments);
+    }
+
+    private function buildTree(array $categories, $parentId = null)
+    {    $tree = array();
+        foreach ($categories as $category) {
+            $parentNode = !$parentId && !$category['parent'];
+            $childNode = $parentId && $category['parent']
+                && $category['parent']['id'] === $parentId;
+            if ($parentNode || $childNode) {
+                $category['children'] = $this->buildTree($categories, $category['id']);
+                $tree[$category['id']] = $category;        }    }
+        return $tree;
     }
 }

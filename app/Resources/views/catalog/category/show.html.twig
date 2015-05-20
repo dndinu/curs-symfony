@@ -1,5 +1,5 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{% extends 'common/app.html.twig' %}
+{% block content %}
     <table border="1">
         <tr>
             <td>ID</td>
@@ -15,14 +15,15 @@
                 <td>No parent</td>
             {% else %}
                 <td>
-                    {% set parentUrl = path(
-                    'catalog_category_show',
-                    {'categoryId': category.parent.id})
-                    %}                    <a href="{{ parentUrl }}">
+                    <a href="{{ path('catalog_category_show',
+                    {'categoryId': category.parent.id}) }}">
                         {{ category.parent.label }}
                     </a>
                 </td>
             {% endif %}
-        </tr>    </table>
+        </tr>
+    </table>
+{% endblock %}
+{% block footer %}
     <a href="{{ path('catalog_category_list') }}">Back to list</a>
 {% endblock %}

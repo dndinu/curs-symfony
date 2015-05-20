@@ -1,5 +1,8 @@
-{% extends 'base.html.twig' %}
-{% block body %}
+{% extends 'common/app.html.twig' %} 
+{% block header %}
+    Edit category
+{% endblock %}
+{% block content %}
     <form method="post">
         <input type="hidden" value="{{ category.id }}" />
         <table border="1">
@@ -37,5 +40,7 @@
         </table>
         <input type="submit" value="save"/>
     </form>
+{% endblock %}
+{% block footer %}
     <a href="{{ path('catalog_category_list') }}">Back to list</a>
 {% endblock %}
