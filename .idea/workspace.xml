@@ -68,8 +68,8 @@
       <file leaf-file-name="Order.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51428574" vertical-offset="2157" max-vertical-offset="2975">
-              <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.2672956" vertical-offset="0" max-vertical-offset="2992">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -102,7 +102,6 @@
         <option value="$PROJECT_DIR$/web/app_dev.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/translations/messages.en.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Order/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Order.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/OrderProductLineEmbeddableType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/OrderType.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
@@ -119,6 +118,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Order/show.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Form/fields.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/embeddable-form.js" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Order.php" />
       </list>
     </option>
   </component>
@@ -844,8 +844,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51428574" vertical-offset="2157" max-vertical-offset="2975">
-          <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.2672956" vertical-offset="0" max-vertical-offset="2992">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding />
         </state>
       </provider>
