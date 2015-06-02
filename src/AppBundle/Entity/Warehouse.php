@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Warehouse
 {
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
     /**
      * @var integer
      *

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class OrderProductLine
 {
+    const REPOSITORY = 'AppBundle:OrderProductLine';
     /**
      * @var integer
      *
@@ -31,7 +32,7 @@ class OrderProductLine
     /**
      * @var \Order
      *
-     * @ORM\ManyToOne(targetEntity="Order")
+     * @ORM\ManyToOne(targetEntity="Order", inversedBy="productLines")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="order_id", referencedColumnName="id")
      * })
