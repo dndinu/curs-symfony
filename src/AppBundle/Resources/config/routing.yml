@@ -1,3 +1,15 @@
+app_product:
+    resource: "@AppBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+app_account:
+    resource: "@AppBundle/Resources/config/routing/account.yml"
+    prefix:   /account
+
+app_order:
+    resource: "@AppBundle/Resources/config/routing/order.yml"
+    prefix:   /order
+
 app_category:
     resource: "@AppBundle/Resources/config/routing/category.yml"
     prefix:   /category

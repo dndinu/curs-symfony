@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Account
@@ -151,5 +152,13 @@ class Account
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * @Assert\True(message="The password cannot match your login")
+     */
+    public function isPasswordLegal()
+    {
+        return ($this->login !== $this->password);
     }
 }
