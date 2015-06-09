@@ -1,0 +1,28 @@
+{% extends 'common/app.html.twig' %}
+{% block header%}
+    <h1>Routs list</h1>
+{% endblock %}
+{% block content%}
+    <table class="records_list">
+        <thead>
+        <tr>
+            <th>Name</th><th>Go To</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for route in routeList %}
+            <tr>
+                <td>
+                    {{ route|capitalize }}
+
+                </td>
+                <td>
+                    <a class="button" href="{{ path( route ) }}">
+                        {{ route }}
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
