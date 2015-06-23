@@ -11,6 +11,12 @@ function setupUi() {
         showLinkDialog(this);
         return false;
     });
+    $('.datepicker').on('focus', function () {
+        $(this).datepicker({
+            dateFormat: "yy-mm-dd"
+        }).datepicker('show');
+    });
+    $( ":checkbox" ).button();
 }
 
 function showLinkDialog(link) {

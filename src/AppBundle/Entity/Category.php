@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Exception\LogicException;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -10,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="category", indexes={@ORM\Index(name="fk_category_category_idx", columns={"parent_category_id"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  */
 class Category
 {
@@ -42,6 +44,11 @@ class Category
      * })
      */
     private $parentCategory;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="id")
+     */
+    private $childenCategorys;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -171,4 +178,34 @@ class Category
         return $this->getId() !== $this->getParentCategory()->getId();
     }
 
+    /**
+     * @ORM\PreRemove
+     */
+    public function preRemove()
+    {$a=$this->getChildenCategorys();
+//        echo'<pre>';
+        var_dump($a);die;
+//        if ($this->getId()==$this->parentCategory())
+        if (count($this->getProduct())) {
+            throw new LogicException('Cannot remove a category that has products');
+        }
+
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChildenCategorys()
+    {
+        return $this->childenCategorys;
+    }
+
+    /**
+     * @param mixed $childenCategorys
+     */
+    public function setChildenCategorys($childenCategorys)
+    {
+        $this->childenCategorys = $childenCategorys;
+    }
 }

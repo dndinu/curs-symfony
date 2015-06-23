@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Exception\AppException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -189,20 +190,21 @@ class CountryController extends Controller
     {
         $form = $this->createDeleteForm($id);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('AppBundle:Country')->find($id);
-
+            $entity = $em->getRepository('AppBundle:Category')->find($id);
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Country entity.');
+                throw $this->createNotFoundException('Unable to find Category entity.');
             }
-
-            $em->remove($entity);
-            $em->flush();
+            try {
+                $em->remove($entity);
+                $em->flush();
+            } catch (AppException $exception) {
+                $this->addFlash('warning', $exception->getMessage());
+                return $this->updateAction($request, $id);
+            }
         }
-
-        return $this->redirect($this->generateUrl('country'));
+        return $this->redirect($this->generateUrl('category'));
     }
 
     /**
